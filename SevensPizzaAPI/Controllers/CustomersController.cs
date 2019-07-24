@@ -48,6 +48,26 @@ namespace SevensPizzaAPI.Controllers
             return Ok(customer);
         }
 
+        [HttpGet("{Email}/{Password}")]
+        public async Task<IActionResult> GetCustomer([FromBody] string Email, [FromBody] string Password)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var customer = await _context.Customer
+               .FirstOrDefaultAsync(m => m.Email == Email && m.Password == Password);
+            //var customer = await _context.Customer.FindAsync(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(customer.CustID);
+        }
+
         // PUT: api/Customers/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer([FromRoute] int id, [FromBody] Customer customer)
