@@ -49,7 +49,7 @@ namespace SevensPizzaAPI.Controllers
         }
 
         [HttpGet("{Email}/{Password}")]
-        public async Task<IActionResult> GetCustomer([FromBody] string Email, [FromBody] string Password)
+        public async Task<IActionResult> GetCustomer([FromRoute] string Email, [FromRoute] string Password)
         {
             if (!ModelState.IsValid)
             {
