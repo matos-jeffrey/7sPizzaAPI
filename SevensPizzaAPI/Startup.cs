@@ -36,7 +36,8 @@ namespace SevensPizzaAPI
             {
                 options.AddPolicy("CorsPolicy",
                     builder =>
-                    builder.WithOrigins("https://localhost:44373", "https://localhost", "https://7spizza.azurewebsites.net")
+                    builder.WithOrigins("http://localhost", 
+                        "https://7spizza.azurewebsites.net", "http://localhost:55330/")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
@@ -48,20 +49,20 @@ namespace SevensPizzaAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
-            app.UseDatabaseErrorPage();
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseHsts();
-            //}
+            //app.UseDeveloperExceptionPage();
+            //app.UseDatabaseErrorPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseCors("CorsPolicy");
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
