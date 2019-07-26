@@ -103,5 +103,13 @@ namespace SevensPizzaAPI.DAL
             return  _context.Topping.ToList();
         }
         #endregion
+
+        #region credit card
+        public async Task<CreditCard> AddCreditCard(CreditCard card)
+        {
+            //first check if the card already exist
+            var exist = await _context.CreditCard.Where(x => x.CardNumber == card.CardNumber && x.CecCode == card.CecCode).FirstOrDefaultAsync();
+        }
+        #endregion
     }
 }

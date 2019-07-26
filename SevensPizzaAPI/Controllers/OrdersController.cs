@@ -61,6 +61,23 @@ namespace SevensPizzaAPI.Controllers
             return Ok(order);
         }
 
+
+        //Put:api/Orders
+        //id is customer id
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Checkout([FromRoute] int id,[FromBody] Order order)
+        {
+            order.OrderTime = DateTime.Now;
+            order.Checkout = true;
+            if(order.Card != null)
+            {
+                //add to credit card table
+                DAL.AddCreditCard(id,order.Card);
+            }
+
+            return Ok();
+        }
+
     }
 
         

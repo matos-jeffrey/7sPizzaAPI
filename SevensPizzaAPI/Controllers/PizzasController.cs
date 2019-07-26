@@ -86,7 +86,7 @@ namespace SevensPizzaAPI.Controllers
             //update information 
             order.TotalPizza += pizza.Quantity;
             order.Price += pizza.Price;
-            pizza = await DAL.CreateNewPizza(pizza);
+            await DAL.CreateNewPizza(pizza);
             await DAL.UpdateOrder(order);
             return Ok();
         }
