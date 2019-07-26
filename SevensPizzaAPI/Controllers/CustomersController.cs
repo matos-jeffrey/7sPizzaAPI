@@ -22,8 +22,8 @@ namespace SevensPizzaAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Customers
-        [HttpGet]
+       //GET: api/Customers
+       [HttpGet]
         public IEnumerable<Customer> GetCustomer()
         {
             return _context.Customer;

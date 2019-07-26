@@ -41,6 +41,7 @@ namespace SevensPizzaAPI
                     builder =>
                     builder.WithOrigins("http://localhost/",
                         "https://7spizza.azurewebsites.net/", "http://localhost:55330/", "http://localhost:56758")
+
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
