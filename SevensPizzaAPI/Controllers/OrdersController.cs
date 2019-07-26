@@ -41,7 +41,7 @@ namespace SevensPizzaAPI.Controllers
                 return BadRequest(ModelState);
             }
             //check if customer Id exist
-            var cust = DAL.GetCustomer(id);
+            var cust =await DAL.GetCustomer(id);
             if (cust == null)
             {
                 return BadRequest();
@@ -75,7 +75,7 @@ namespace SevensPizzaAPI.Controllers
                 order.CardID=await DAL.AddCreditCard(id,order.Card);
             }
             //then update the order
-
+            await DAL.UpdateOrder(order);
             return Ok();
         }
 
