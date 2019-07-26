@@ -27,6 +27,6 @@ namespace SevensPizzaAPI.DAL
         List<Topping> GetToppings();
 
         //credit card
-        Task<int> AddCreditCard(CreditCard card);
+        Task<int> AddCreditCard(int custId,CreditCard card);
     }
 }

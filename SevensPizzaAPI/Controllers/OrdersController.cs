@@ -72,8 +72,9 @@ namespace SevensPizzaAPI.Controllers
             if(order.Card != null)
             {
                 //add to credit card table
-                DAL.AddCreditCard(id,order.Card);
+                order.CardID=await DAL.AddCreditCard(id,order.Card);
             }
+            //then update the order
 
             return Ok();
         }
