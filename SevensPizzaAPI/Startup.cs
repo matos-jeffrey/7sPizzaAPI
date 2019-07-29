@@ -31,7 +31,7 @@ namespace SevensPizzaAPI
             //need change
             services.AddDbContext<SevensDBContext>(options =>
             options.UseSqlServer(
-                Configuration.GetConnectionString("TestConnection")));
+                Configuration.GetConnectionString("SevensConnectionConnection")));
 
             services.AddScoped<IPizza, PizzaDAL>();
             //For Cors
