@@ -213,8 +213,10 @@ namespace SevensPizzaAPI.Controllers
                 Price = 8;
             else if (pizza.Size == "Medium")
                 Price = 12;
-            else
+            else if (pizza.Size == "Large")
                 Price = 16;
+            else
+                Price = 18;
 
             //base on topping
             foreach (var item in pizza.Meats)
