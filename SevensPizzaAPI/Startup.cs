@@ -40,7 +40,7 @@ namespace SevensPizzaAPI
                 options.AddPolicy("CorsPolicy",
                     builder =>
                     builder.WithOrigins("http://localhost/",
-                        "https://7spizza.azurewebsites.net", "http://localhost:55330", "http://localhost:56758")
+                        "https://7spizza.azurewebsites.net", "http://localhost:55330", "http://localhost:56758", "http://localhost:4200")
 
                     .AllowAnyMethod()
                     .AllowAnyHeader()
