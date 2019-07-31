@@ -47,13 +47,10 @@ namespace SevensPizzaAPI.Controllers
             {
                 return NotFound();
             }
-            if (order.OrderID != pizza.OrderID)
-            {
-                return BadRequest();
-            }
-
-           
-
+            //if (order.OrderID != pizza.OrderID)
+            //{
+            //    return BadRequest();
+            //}
 
             return Ok(pizza);
         }
